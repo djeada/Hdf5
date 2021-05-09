@@ -10,10 +10,11 @@ Examples of code for processing  HDF5 files.
 * Core accesible from C, C++ and java. There are wrappers for many other languages including Python.
 
 <h1>Structure </h1>
+
 * Groups (like directories)
 * Datasets (like files)
-  * Shape (ex. 1D, 2D, 5D)
-  * Datatype (ex. float, int32)
+  - Shape (ex. 1D, 2D, 5D)
+  - Datatype (ex. float, int32)
 
 <h1>Linear vs Chunked </h1>
 This concept diffrentiaties HDF5 from other data formats.

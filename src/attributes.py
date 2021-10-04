@@ -1,7 +1,7 @@
 import numpy as np
 import h5py
 
-PATH = "example_io.h5"
+PATH = "example_attributes.h5"
 NUM_DATASETS = 3
 NUM_ROWS = 100
 NUM_COLS = 10
@@ -14,7 +14,9 @@ def random_data():
 def save_data(path, data):
     with h5py.File(path, "w") as hdf:
         for i, matrix in enumerate(data):
-            hdf.create_dataset(f"dataset {i}", data=matrix)
+            dataset = hdf.create_dataset(f"dataset {i}", data=matrix)
+            dataset.attrs["CLASS"] = "DATA MATRIX"
+            dataset.attrs["VERSION"] = "0.1"
 
 
 def read_data(path, n=3):
@@ -26,6 +28,7 @@ def read_data(path, n=3):
             print("")
             dataset = hdf.get(key)
             print(f"Shape of {key} : {dataset.shape}")
+            print(f"Attributes : {list(dataset.attrs)}")
             print(f"Contents of {n} first rows of the dataset:")
             print(dataset[:n, :])
 

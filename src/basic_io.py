@@ -1,35 +1,41 @@
 import numpy as np
 import h5py
-import random
 
-path = 'example_hdf5.h5'
+PATH = "example_io.h5"
+NUM_DATASETS = 3
+NUM_ROWS = 100
+NUM_COLS = 10
+
 
 def random_data():
-	return [np.random.random(size = (random.randint(1,1000), random.randint(1,1000))) for i in range(3)]
+    return [np.random.random(size=(NUM_ROWS, NUM_COLS)) for i in range(NUM_DATASETS)]
 
-def save_data(_path, data):
-	with h5py.File(_path, 'w') as hdf:
-		for matrix in data:
-			hdf.create_dataset('dataset {}'.format(data.index(matrix) + 1), data=matrix)
 
-def read_data(_path):
-	with h5py.File(_path,'r') as hdf:
-		ls = list(hdf.keys())
-		print('List of datasets in this file: \n', ls)
+def save_data(path, data):
+    with h5py.File(path, "w") as hdf:
+        for i, matrix in enumerate(data):
+            hdf.create_dataset(f"dataset {i}", data=matrix)
 
-		for key in ls:
-			print('')
-			data = hdf.get(key)
-			print(data)
-			dataset = np.array(data)
-			print('Shape of {} : {}'.format(key, dataset.shape))
-			print('Contents of the dataset')
-			print(dataset)
+
+def read_data(path, n=3):
+    with h5py.File(path, "r") as hdf:
+        dataset_list = list(hdf.keys())
+        print("List of datasets in this file: \n", dataset_list)
+
+        for key in dataset_list:
+            print("")
+            data = hdf.get(key)
+            dataset = np.array(data)
+            print(f"Shape of {key} : {dataset.shape}".format())
+            print(f"Contents of {n} first rows of the dataset:")
+            print(dataset[:n, :])
+
 
 def main():
-	data = random_data()
-	save_data(path, data)
-	read_data(path)
+    data = random_data()
+    save_data(PATH, data)
+    read_data(PATH)
+
 
 if __name__ == "__main__":
-	main()
+    main()

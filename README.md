@@ -36,7 +36,7 @@ Examples:
 
 <h1>Code Samples</h1>
 
-* <a href="https://github.com/djeada/Hdf5/blob/main/src/basic_io.py">Basic IO.</a>
-* <a href="https://github.com/djeada/Hdf5/blob/main/src/groups.py">Groups.</a>
-* <a href="https://github.com/djeada/Hdf5/blob/main/src/compression.py">Compression.</a>
-* <a href="https://github.com/djeada/Hdf5/blob/main/src/attributes.py">Attributes.</a>
+* <a href="https://github.com/djeada/Hdf5/blob/main/src/basic_io.py">Basic IO</a>
+* <a href="https://github.com/djeada/Hdf5/blob/main/src/groups.py">Groups</a>
+* <a href="https://github.com/djeada/Hdf5/blob/main/src/compression.py">Compression</a>
+* <a href="https://github.com/djeada/Hdf5/blob/main/src/attributes.py">Attributes</a>

@@ -69,6 +69,7 @@ Chunk size must strike a balance:
  - minimizing chunking i/o overhead cost.
 
 <h1>Filter</h1>
+
 Filter is a way to compress data.
   - Can be applied to datasets.
   - It is a layer betwen program and data.

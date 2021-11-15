@@ -55,7 +55,6 @@ It allows for faster access to data.
 
 Linear:
   - Data is stored in a single file.
-  - Data is stored in a linear fashion.
   - Data is stored in a single chunk.
   - Data is stored in a single block.
 

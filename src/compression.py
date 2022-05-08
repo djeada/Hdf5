@@ -10,20 +10,20 @@ NUM_COLS = 1000
 
 
 def random_data() -> list:
-    '''
+    """
     Generates random data. 
     Returns a list of numpy arrays.
-    '''
+    """
     return [np.random.random(size=(NUM_ROWS, NUM_COLS)) for i in range(NUM_DATASETS)]
 
 
 def save_data(file_path: str, data: list, with_compression: bool = False) -> None:
-    '''
+    """
     Saves provided data to hdf5 file. Data is stored in groups.
     File is created if it does not exist.
     File is overwritten if it exists.
     File path is relative to the current working directory.
-    '''
+    """
     with h5py.File(file_path, "w") as hdf:
         for i, matrix in enumerate(data):
             kwargs = (
@@ -35,9 +35,9 @@ def save_data(file_path: str, data: list, with_compression: bool = False) -> Non
 
 
 def main():
-    '''
+    """
     Main function.
-    '''
+    """
     data = random_data()
     save_data(PATH_1, data)
     save_data(PATH_2, data, True)

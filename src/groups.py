@@ -9,20 +9,20 @@ NUM_COLS = 10
 
 
 def random_data() -> list:
-    '''
+    """
     Generates random data. 
     Returns a list of numpy arrays.
-    '''
+    """
     return [np.random.random(size=(NUM_ROWS, NUM_COLS)) for i in range(NUM_DATASETS)]
 
 
 def save_data(file_path: str, data: list) -> None:
-    '''
+    """
     Saves provided data to hdf5 file. Data is stored in groups.
     File is created if it does not exist.
     File is overwritten if it exists.
     File path is relative to the current working directory.
-    '''
+    """
     with h5py.File(file_path, "w") as hdf:
         group = hdf.create_group("Group1")
 
@@ -37,9 +37,9 @@ def save_data(file_path: str, data: list) -> None:
 
 
 def read_data(path: str) -> None:
-    '''
+    """
     Reads data from hdf5 file and prints it to standard output.
-    '''
+    """
     with h5py.File(path, "r") as hdf:
         base_items = list(hdf.items())
         print(f"Items in the base directory: {base_items}")
@@ -53,13 +53,14 @@ def read_data(path: str) -> None:
 
 
 def main():
-    '''
+    """
     Main function.
-    '''
+    """
     data = random_data()
     save_data(PATH, data)
     read_data(PATH)
     shutil.rmtree(PATH)
+
 
 if __name__ == "__main__":
     main()

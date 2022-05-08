@@ -9,7 +9,7 @@ For example, you can store a large number of images in a single HDF5 file.
 * Current version is 5.
 * It is a file format for storing data that is highly extensible and flexible.
 * Open-source and free.
-* Core accesible from C, C++ and java. There are wrappers for many other languages including Python.
+* We may directly use the core implementation in C, C++, and Java. There are wrappers for several other languages, including Python. 
 
 <h1>Using HDF5 </h1>
 To use HDF5, you need to install the h5py module.
